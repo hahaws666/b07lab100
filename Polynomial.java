@@ -1,5 +1,5 @@
 public class Polynomial {
-    private double[] coff;
+    double[] coff;
     public Polynomial() {
         coff = new double[]{0};
     }
@@ -9,18 +9,26 @@ public class Polynomial {
     }
 
     public Polynomial add(Polynomial other) {
-        int maxDegree = Math.max(this.coff.length, other.coff.length);
-        double[] resultCoefficients = new double[maxDegree];
+
+        int maxDegree = 0;
+        double[] res = new double[maxDegree];
+        if (this.coff.length>=other.coff.length) {
+            maxDegree=this.coff.length;
+            
+        }
+        else{
+            maxDegree=other.coff.length;
+        }
         
         for (int i = 0; i < this.coff.length; i++) {
-            resultCoefficients[i] += this.coff[i];
+            res[i] += this.coff[i];
         }
         
         for (int i = 0; i < other.coff.length; i++) {
-            resultCoefficients[i] += other.coff[i];
+            res[i] += other.coff[i];
         }
         
-        return new Polynomial(resultCoefficients);
+        return new Polynomial(res);
     }
 
     public double evaluate(double x) {
