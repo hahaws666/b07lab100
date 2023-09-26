@@ -43,14 +43,6 @@ public class Polynomial {
         return evaluate(x) == 0;
     }
 
-    public int getDegree() {
-        return coff.length - 1;
-    }
-
-
-    public double[] getCoff() {
-        return coff.clone();
-    }
 
 
 
